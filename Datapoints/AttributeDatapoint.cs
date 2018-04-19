@@ -39,12 +39,37 @@ namespace ECA2LD.Datapoints
             graph = new AttributeLDPGraph(new Uri(uri), attribute);
         }
 
+        protected override void onConnect(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onDelete(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void onGet(object sender, HttpEventArgs e)
         {
             string graphAsTTL = graph.GetTTL();
             e.response.OutputStream.Write(Encoding.UTF8.GetBytes(graphAsTTL), 0, graphAsTTL.Length);
             e.response.OutputStream.Flush();
             e.response.OutputStream.Close();
+        }
+
+        protected override void onHead(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onOptions(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onPatch(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         protected override void onPost(object sender, HttpEventArgs e)
